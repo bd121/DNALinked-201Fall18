@@ -133,21 +133,6 @@ public class LinkStrand implements IDnaStrand{
 		
 		return myCurrent.info.charAt(myLocalIndex);
 	}
-
-		 //one for the current node in a sequence of calls of charAt, one for the current index into that node,
-		 //and one for the overall count, then these instance variables can be updated on each call to charAt
-		 //to save the current “progress” we have reached, so that on a subsequent call it will be possible to
-		 //continue from there and access the next character in a node, for example, by simply incrementing the index into that node. 
-		//You'll need to initialize these instance variables when a strand is created, e.g., in method initialize.
-		 //myIndex - value of the parameter in the last call to charAt.
-		 //myLocalIndex - the value of the index within the string stored in the node last-referenced by charAt when the method finishes
-		 //myCurrent - the node of the internal list referenced in the last call to charAt
-		
-		
-		
-		
-		//return 0;
-	
 	
 	public String toString() {
 		Node current = myFirst;
