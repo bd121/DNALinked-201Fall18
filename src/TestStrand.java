@@ -28,7 +28,7 @@ public class TestStrand {
 	 */
 	public IDnaStrand getNewStrand(String s) {
 		//return new StringStrand(s);
-		return new LinkedStrand(s);
+		return new LinkStrand(s);
 		//return new StringBuilderStrand(s);
 	}
 

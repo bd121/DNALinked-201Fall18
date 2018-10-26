@@ -52,7 +52,7 @@ public class LinkStrand implements IDnaStrand{
 	@Override
 	public IDnaStrand getInstance(String source) {
 		// TODO Auto-generated method stub
-		return new LinkedStrand(source);
+		return new LinkStrand(source);
 	}
 
 	@Override
@@ -71,14 +71,14 @@ public class LinkStrand implements IDnaStrand{
 	public IDnaStrand reverse() {
 		// TODO Auto-generated method stub
 		Node current = myFirst; 
-		LinkedStrand b = null;
+		LinkStrand b = null;
 		while (current != null) {
 			StringBuilder copy = new StringBuilder(current.info);
 			copy.reverse();
 			String currentCopy = copy.toString();
 			
 			if (current == myFirst) {
-				b = new LinkedStrand(currentCopy);				
+				b = new LinkStrand(currentCopy);				
 			}
 			else {
 				b.append(currentCopy);
