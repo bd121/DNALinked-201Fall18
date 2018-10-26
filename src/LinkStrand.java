@@ -78,10 +78,19 @@ public class LinkStrand implements IDnaStrand{
 			String currentCopy = copy.toString();
 			
 			if (current == myFirst) {
-				b = new LinkStrand(currentCopy);				
+				b = new LinkStrand(currentCopy);	
+				
 			}
 			else {
-				b.append(currentCopy);
+				Node bnew = new Node(currentCopy);
+				bnew.next = b.myFirst;
+				b.myFirst = bnew;
+				//b.append(currentCopy);
+			//b.myFirst = currentCopy;
+			//b.append
+			//node holding currentCopy
+			//currentCopy point to b.myFirst
+			//b.myFirst = currentCopy;
 			}
 			current = current.next;
 		}
@@ -100,7 +109,7 @@ public class LinkStrand implements IDnaStrand{
 		
 		//total index
 		//index in current node
-		if (index > mySize || index < 0) {
+		if (index >= mySize || index < 0) {
 			throw new IndexOutOfBoundsException("index beyond the bounds");
 		}
 		
