@@ -43,7 +43,7 @@ public class LinkStrand implements IDnaStrand{
 				
 		myAppends = 0;
 		mySize = source.length();
-		System.out.println("2");
+		//System.out.println("2");
 		// TODO Auto-generated method stub
 		myIndex = 0;
 		myLocalIndex = 0;
@@ -64,7 +64,7 @@ public class LinkStrand implements IDnaStrand{
 		myLast = myLast.next;
 		mySize += dna.length();
 		myAppends += 1;
-		System.out.println("3");
+		//System.out.println("3");
 		return this;
 		//return myFirst;
 	}
@@ -73,7 +73,7 @@ public class LinkStrand implements IDnaStrand{
 	public IDnaStrand reverse() {
 		// TODO Auto-generated method stub
 		Node current = myFirst;
-		int x = 0;
+		//int x = 0;
 		//Node first = myFirst;
 		//LinkStrand b = null;
 		StringBuilder copy = new StringBuilder(current.info);
@@ -98,7 +98,7 @@ public class LinkStrand implements IDnaStrand{
 			Node bnew = new Node(currentCopy);
 			bnew.next = b.myFirst;
 			b.myFirst = bnew;
-			mySize += copy.length();
+			b.mySize += copy.length();
 				//1;
 				//b.append(currentCopy);
 			//b.myFirst = currentCopy;
