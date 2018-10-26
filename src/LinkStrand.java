@@ -82,14 +82,14 @@ public class LinkStrand implements IDnaStrand{
 			
 			if (current == first) {
 				b = new LinkStrand(currentCopy);
-				mySize += current.info.length();
+				//mySize += copy.length();
 				
 			}
 			else {
 				Node bnew = new Node(currentCopy);
 				bnew.next = b.myFirst;
 				b.myFirst = bnew;
-				mySize += current.info.length();
+				mySize += copy.length();
 				//b.append(currentCopy);
 			//b.myFirst = currentCopy;
 			//b.append
