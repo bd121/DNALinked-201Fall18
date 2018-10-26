@@ -19,24 +19,37 @@ public class CodonProfiler {
 		
 		//use the map
 		
-		for(int k=0; k < codons.length; k++) {
-			Iterator<Character> iter = strand.iterator();
-			while (iter.hasNext()) {
-				char a = iter.next();
-				char b = 'z';           // not part of any real codon
-				char c = 'z';
-				if (iter.hasNext()) {
-					b = iter.next();
-				}
-				if (iter.hasNext()) {
-					c = iter.next();
-				}
-				String cod = ""+a+b+c;
-				if (cod.equals(codons[k])) {
-					ret[k] += 1;
-				}
+		//for(int k=0; k < codons.length; k++) {
+		Iterator<Character> iter = strand.iterator();
+		int k = 0;
+		while (iter.hasNext()) {
+			char a = iter.next();
+			char b = 'z';           // not part of any real codon
+			char c = 'z';
+			if (iter.hasNext()) {
+				b = iter.next();
 			}
+			if (iter.hasNext()) {
+				c = iter.next();
+			}
+			String cod = ""+a+b+c;
+				
+			if (!map.containsKey(cod)) {
+				map.put(cod, 0);
+			}
+			map.put(cod, map.get(cod) + 1);
 		}
+		
+		for (int n = 0; n <  codons.length; n +=1) {
+			if (map.containsKey(codons[n])) {
+				ret[n] = map.get(codons[n]); 
+			}	
+			//	if (cod.equals(codons[k])) {
+			//		ret[k] += 1;
+			//	}
+		}
+		//}
+		//return ret;
 		return ret;
 	}
 }
