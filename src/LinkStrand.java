@@ -75,24 +75,30 @@ public class LinkStrand implements IDnaStrand{
 		Node current = myFirst;
 		int x = 0;
 		//Node first = myFirst;
-		LinkStrand b = null;
+		//LinkStrand b = null;
+		StringBuilder copy = new StringBuilder(current.info);
+		copy.reverse();
+		String currentCopy = copy.toString();
+		LinkStrand b = new LinkStrand(currentCopy);
+		current = current.next;
+		
 		while (current != null) {
-			StringBuilder copy = new StringBuilder(current.info);
+			copy = new StringBuilder(current.info);
 			copy.reverse();
-			String currentCopy = copy.toString();
+			currentCopy = copy.toString();
 			
-			if (current.info.equals(myFirst.info)) {
+			//if (current.info.equals(myFirst.info)) {
 			//if (x == 0) {
-				b = new LinkStrand(currentCopy);
+				//b = new LinkStrand(currentCopy);
 				//mySize += 1;
 				//mySize += copy.length();
 				//x = 1;
-			}
-			else {
-				Node bnew = new Node(currentCopy);
-				bnew.next = b.myFirst;
-				b.myFirst = bnew;
-				mySize += copy.length();
+			//}
+			//else {
+			Node bnew = new Node(currentCopy);
+			bnew.next = b.myFirst;
+			b.myFirst = bnew;
+			mySize += copy.length();
 				//1;
 				//b.append(currentCopy);
 			//b.myFirst = currentCopy;
@@ -100,9 +106,10 @@ public class LinkStrand implements IDnaStrand{
 			//node holding currentCopy
 			//currentCopy point to b.myFirst
 			//b.myFirst = currentCopy;
-			}
-			current = current.next;
+			current = current.next;	
 		}
+
+
 		return b;
 	}
 
