@@ -81,12 +81,12 @@ public class LinkStrand implements IDnaStrand{
 			copy.reverse();
 			String currentCopy = copy.toString();
 			
-			//if (current == myFirst) {
-			if (x == 0) {
+			if (current.info.equals(myFirst.info)) {
+			//if (x == 0) {
 				b = new LinkStrand(currentCopy);
 				//mySize += 1;
-				mySize += copy.length();
-				x = 1;
+				//mySize += copy.length();
+				//x = 1;
 			}
 			else {
 				Node bnew = new Node(currentCopy);
