@@ -70,14 +70,15 @@ public class LinkStrand implements IDnaStrand{
 	@Override
 	public IDnaStrand reverse() {
 		// TODO Auto-generated method stub
-		Node current = myFirst; 
+		Node current = myFirst;
+		Node first = myFirst;
 		LinkStrand b = null;
 		while (current != null) {
 			StringBuilder copy = new StringBuilder(current.info);
 			copy.reverse();
 			String currentCopy = copy.toString();
 			
-			if (current == myFirst) {
+			if (current == first) {
 				b = new LinkStrand(currentCopy);	
 				
 			}
