@@ -73,14 +73,14 @@ public class LinkStrand implements IDnaStrand{
 	public IDnaStrand reverse() {
 		// TODO Auto-generated method stub
 		Node current = myFirst;
-		Node first = myFirst;
+		//Node first = myFirst;
 		LinkStrand b = null;
 		while (current != null) {
 			StringBuilder copy = new StringBuilder(current.info);
 			copy.reverse();
 			String currentCopy = copy.toString();
 			
-			if (current == first) {
+			if (current == myFirst) {
 				b = new LinkStrand(currentCopy);
 				//mySize += copy.length();
 				
@@ -89,7 +89,7 @@ public class LinkStrand implements IDnaStrand{
 				Node bnew = new Node(currentCopy);
 				bnew.next = b.myFirst;
 				b.myFirst = bnew;
-				mySize += copy.length();
+				mySize += 1;//copy.length();
 				//b.append(currentCopy);
 			//b.myFirst = currentCopy;
 			//b.append
