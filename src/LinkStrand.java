@@ -14,7 +14,7 @@ public class LinkStrand implements IDnaStrand{
 	      	next = null;
 	   	}
 	   }
-	   private Node myFirst,myLast;
+	   private Node myFirst,myLast; //first;
 	   private long mySize;
 	   private int myAppends;
 
@@ -39,6 +39,8 @@ public class LinkStrand implements IDnaStrand{
 	public void initialize(String source) {
 		myFirst = new Node(source); 
 		myLast = myFirst;
+		//first = 
+				
 		myAppends = 0;
 		mySize = source.length();
 		System.out.println("2");
@@ -79,13 +81,15 @@ public class LinkStrand implements IDnaStrand{
 			String currentCopy = copy.toString();
 			
 			if (current == first) {
-				b = new LinkStrand(currentCopy);	
+				b = new LinkStrand(currentCopy);
+				mySize += currentCopy.length();
 				
 			}
 			else {
 				Node bnew = new Node(currentCopy);
 				bnew.next = b.myFirst;
 				b.myFirst = bnew;
+				mySize += currentCopy.length();
 				//b.append(currentCopy);
 			//b.myFirst = currentCopy;
 			//b.append

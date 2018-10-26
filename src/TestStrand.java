@@ -83,6 +83,11 @@ public class TestStrand {
 			assertEquals("This test checks if reverse works correctly for "
 					+ "simple cases. The test case failed on was " + s, rev.toString(), rs);
 		}
+		
+		LinkStrand tester = new LinkStrand("");
+		tester.append("aggtccg");
+		IDnaStrand b = tester.reverse();
+		System.out.println("this is the size " + b.size());
 	}
 
 	@Test(timeout = 10000)
