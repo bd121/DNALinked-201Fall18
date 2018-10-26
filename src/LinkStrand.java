@@ -1,8 +1,6 @@
-//import com.sun.tools.classfile.InnerClasses_attribute.Info;
-
 import java.util.*;
 
-public class LinkedStrand implements IDnaStrand{
+public class LinkStrand implements IDnaStrand{
  
 	private int myIndex;
 	private int myLocalIndex;
@@ -21,12 +19,12 @@ public class LinkedStrand implements IDnaStrand{
 	   private int myAppends;
 
 	
-	public LinkedStrand (String s) {
+	public LinkStrand (String s) {
 		initialize(s);
 		System.out.print("1");
 	}
 
-	public LinkedStrand () {
+	public LinkStrand () {
 		this("");
 	}
 	
@@ -161,3 +159,4 @@ public class LinkedStrand implements IDnaStrand{
 		return stringCopy.toString();
 	}
 }
+
