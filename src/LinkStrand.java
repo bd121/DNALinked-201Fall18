@@ -1,12 +1,4 @@
-
-/**
- * Interface for DNA/strand experiments
- * 
- * @author Brian Du
- * @date October, 2018
- */
-
-
+import java.util.*;
 
 public class LinkStrand implements IDnaStrand{
  
@@ -26,43 +18,32 @@ public class LinkStrand implements IDnaStrand{
 	   private long mySize;
 	   private int myAppends;
 
-	/**
-	 * Creates a strand representing s. No checking is done to verify s
-	 * is valid DNA data.
-	 * 
-	 * @param s is the source of cgat data for this strand
-	 */
+	
 	public LinkStrand (String s) {
 		initialize(s);
 		System.out.print("1");
 	}
-	 /**
-	 * Creates an empty strand.
-	 */
+
 	public LinkStrand () {
 		this("");
 	}
 	
-	/**
-	 * @return the number of base pairs in this strand
-	 */
+	//gives the number of bp in a strand referenced by single node
 	@Override
 	public long size() {
 		// TODO Auto-generated method stub
 		return mySize;
 	}
-	 /**
-	 * Creates the first node to the LinkStrand and instantiates all relevant variables. 
-	 * 
-	 * @param is the source for the dna sequence to store in the first node.
-	 */
+
 	@Override
 	public void initialize(String source) {
 		myFirst = new Node(source); 
 		myLast = myFirst;
+		//first = 
 				
 		myAppends = 0;
 		mySize = source.length();
+		//System.out.println("2");
 		// TODO Auto-generated method stub
 		myIndex = 0;
 		myLocalIndex = 0;
@@ -76,12 +57,6 @@ public class LinkStrand implements IDnaStrand{
 		return new LinkStrand(source);
 	}
 
-	/**
-	 * Simply append a strand of dna data to this strand. No error checking is
-	 * done. This method adds a new node to the end of a the linked list.
-	 * 
-	 * @param dna is the String appended to this strand
-	 */
 	@Override
 	public IDnaStrand append(String dna) {
 		// TODO Auto-generated method stub
@@ -89,18 +64,18 @@ public class LinkStrand implements IDnaStrand{
 		myLast = myLast.next;
 		mySize += dna.length();
 		myAppends += 1;
+		//System.out.println("3");
 		return this;
+		//return myFirst;
 	}
-	 /**
-	 * Reverses the strand's sequence.
-	 * 
-	 * @return the new reversed strand 
-	 */ 
+
 	@Override
 	public IDnaStrand reverse() {
 		// TODO Auto-generated method stub
 		Node current = myFirst;
-	
+		//int x = 0;
+		//Node first = myFirst;
+		//LinkStrand b = null;
 		StringBuilder copy = new StringBuilder(current.info);
 		copy.reverse();
 		String currentCopy = copy.toString();
@@ -111,10 +86,27 @@ public class LinkStrand implements IDnaStrand{
 			copy = new StringBuilder(current.info);
 			copy.reverse();
 			currentCopy = copy.toString();
+			
+			//if (current.info.equals(myFirst.info)) {
+			//if (x == 0) {
+				//b = new LinkStrand(currentCopy);
+				//mySize += 1;
+				//mySize += copy.length();
+				//x = 1;
+			//}
+			//else {
 			Node bnew = new Node(currentCopy);
 			bnew.next = b.myFirst;
 			b.myFirst = bnew;
 			b.mySize += copy.length();
+				//1;
+				//b.append(currentCopy);
+			//b.myFirst = currentCopy;
+			//b.append
+			//node holding currentCopy
+			//currentCopy point to b.myFirst
+			//b.myFirst = currentCopy;
+			current = current.next;	
 		}
 
 
@@ -123,19 +115,16 @@ public class LinkStrand implements IDnaStrand{
 
 	@Override
 	public int getAppendCount() {
+		// TODO Auto-generated method stub
 		return myAppends;
 	}
 
-	 /**
-	 * Checks to see what character is at an index in the LinkStrand. It is efficient because it saves the previous
-	 * index and if possible, counts forward from that index to the new index.
-	 * 
-	 * @param is the index to look for in the list
-	 * @return is the character found at the index passed in in parameter 
-	 */
 	@Override
 	public char charAt(int index) {
+		// TODO Auto-generated method stub
 		
+		//total index
+		//index in current node
 		if (index >= mySize || index < 0) {
 			throw new IndexOutOfBoundsException("index beyond the bounds");
 		}
@@ -169,7 +158,6 @@ public class LinkStrand implements IDnaStrand{
 		
 		return myCurrent.info.charAt(myLocalIndex);
 	}
-	
 	
 	public String toString() {
 		Node current = myFirst;
